@@ -6,6 +6,8 @@ First, create a virtualenvironment (or not...):
 
 ```python3 -m venv venv```
 
+and copy .env.example to .env
+
 After that, install the required dependencies:
 
 ```pip install -r requirements.txt```
