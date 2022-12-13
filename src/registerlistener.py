@@ -15,7 +15,6 @@ class RegisterListener(object):
         self._connection = pika.BlockingConnection(pika.ConnectionParameters('localhost'))
         self._channel = self._connection.channel()
         self._channel.queue_declare(queue='register')    
-        
         self._channel.basic_consume(queue="register", auto_ack=True, on_message_callback=self.registerDevice)
         
         print(' [*] Waiting for messages...')
@@ -23,6 +22,7 @@ class RegisterListener(object):
         
     def registerDevice(self, ch, method, properties, body):
         print("Received register request...")
+        #no validation here (yet):
         requests.post(os.environ.get("REGISTER_URL"), json=json.loads(body))
         
 
