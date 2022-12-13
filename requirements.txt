@@ -1,0 +1,6 @@
+dependency_injector
+flask
+pika
+requests
+python-dotenv
+flask_cors
