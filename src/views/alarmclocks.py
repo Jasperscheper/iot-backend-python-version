@@ -45,7 +45,7 @@ class WeatherView(MethodView):
         device = service.fetchDevice(macAddress)
         
         if device:
-            if(device.location):
+            if device.location:
                 return json.dumps(device.get_weatherinfo())
             return "error; location is not set"
         
